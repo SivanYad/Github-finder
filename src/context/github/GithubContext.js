@@ -33,6 +33,9 @@ export const GithubProvider = ({ children }) => {
       payload: items
     })
   };
+  //Clear Users 
+  const clearUsers = () => dispatch({type: 'CLEAR_USERS'})
+
   // const fetchUsers = async () => {
   //   setLoading()
   //   const response = await fetch(`${GITHUB_URL}/users`, {
@@ -51,7 +54,7 @@ export const GithubProvider = ({ children }) => {
   const setLoading = () => dispatch({type: 'SET_LOADING'})
 
   return (
-    <GithubContext.Provider value={{ users: state.users, loading: state.loading, searchUsers }}>
+    <GithubContext.Provider value={{ users: state.users, loading: state.loading, searchUsers, clearUsers }}>
       {children}
     </GithubContext.Provider>
   );
