@@ -3,13 +3,15 @@ import React from 'react';
 import { useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Spinner from '../componenets/Layout/Spinner';
+import RepoList from '../componenets/repos/RepoList';
 import GithubContext from '../context/github/GithubContext';
 
 function User() {
-  const { getUser, user, loading } = useContext(GithubContext);
+  const { getUser, user, loading, repos, getUserRepos } = useContext(GithubContext);
   const params = useParams();
   useEffect(() => {
     getUser(params.login);
+    getUserRepos(params.login)
   }, []);
 
   const {
@@ -149,6 +151,7 @@ function User() {
             <div className="stat-value pr-5 text-3xl md:text-4xl">{public_gists}</div>
           </div>
         </div>
+        <RepoList />
       </div>
     </>
   );
