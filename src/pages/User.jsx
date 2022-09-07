@@ -151,7 +151,7 @@ function User() {
             <div className="stat-value pr-5 text-3xl md:text-4xl">{public_gists}</div>
           </div>
         </div>
-        <RepoList />
+        <RepoList repos={repos} />
       </div>
     </>
   );
